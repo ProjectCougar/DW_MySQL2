@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
 
 
     <title>DocuWare Search</title>
@@ -19,7 +19,10 @@
   <a class="navbar-brand" href="http://localhost:58196/Search.aspx">
     <img src="/dw2.png" width="50" height="50" class="d-inline-block align-middle" alt="">
 <font color="white" face="Georgia">DocuWare Search </font>  </a>
+     <a href="https://www.stargel.com/managed-services/"> <img src="/star2.jpg" width="150" height="80" class="mr-0" />
+         </a>
 </nav>
+        
   </div>
     <br />
     <br />
