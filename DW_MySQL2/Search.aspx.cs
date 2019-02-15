@@ -20,19 +20,15 @@ namespace DW_MySQL2
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            this.GetDocs(Convert.ToString(txtDocType.Text));
-
-        }
-
-        private void GetDocs(string Document_Type)
-        {
             string connectionString = "Server=DEMOSERVER2;Database=dwdata;Uid=dwadmin; Pwd=dwadmin";
             using (MySqlConnection cn = new MySqlConnection(connectionString))
+
             {
-                using (MySqlCommand cmd = new MySqlCommand("spSearchFileCabinets", cn))
-                {
+                using (MySqlCommand cmd = new MySqlCommand("spSearchFileCabinets", cn)) ;
+                if(txtPatientName.Value.Trim)
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@doctype", Document_Type);
+                    cmd.Parameters.AddWithValue("@name", PATIENT_NAME);
+                    cmd.Parameters.AddWithValue("@account_num", ACCT);
                     using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();

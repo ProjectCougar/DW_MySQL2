@@ -26,22 +26,44 @@
   </div>
     <br />
     <br />
+ 
 
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="Label1" runat="server" Text="Document Type:"></asp:Label>
-            <asp:TextBox ID="txtDocType" runat="server"></asp:TextBox>
-        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" class="btn btn-outline-primary" Text="Search" />
-        </div>
+    <form id="form1" runat="server" >
+         
+    <div class= "border border-primary mx-auto p-4 text-justify rounded" style="width: 600px;">
+            <asp:Label ID="Label1" runat="server" Text="Patient Name:" class="pr-5"></asp:Label>
+            <asp:TextBox ID="txtPatientName" runat="server"></asp:TextBox>
+          <br /> <br />
+            <asp:Label ID="Label2" runat="server" Text="Account Number:" class="pr-4"></asp:Label>
+        
+            <asp:TextBox ID="txtAccountNumber" runat="server"></asp:TextBox>  
+        <br /> <br /><br />
+        <div class="row">
+    <div class="col text-center">
+        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" class="btn btn-outline-primary mx-auto" Text="Search" />
         <br />
-        <br />
-
+        </div>  </div>  </div>
+      
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" HorizontalAlign="Center" Width="80%">
     <Columns>
+
         <asp:BoundField DataField="File Cabinet" HeaderText="File Cabinet" ItemStyle-Width="150" >
 <ItemStyle Width="150px"></ItemStyle>
         </asp:BoundField>
-        <asp:HyperLinkField DataTextField='Document_Type' DataNavigateUrlFields="Link" HeaderText="Document" ItemStyle-Width="150" Target="_blank" >
+
+              <asp:BoundField DataField="PATIENT_NAME" HeaderText="Patient" ItemStyle-Width="150" >
+<ItemStyle Width="150px"></ItemStyle>
+        </asp:BoundField>
+
+         <asp:BoundField DataField="ACCT" HeaderText="Account Number" ItemStyle-Width="150" >
+<ItemStyle Width="150px"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField DataField="SERVICE_DATE" HeaderText="Service Date" ItemStyle-Width="150" >
+<ItemStyle Width="150px"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:HyperLinkField DataTextField='ACCT' DataNavigateUrlFields="Link" HeaderText="Link" ItemStyle-Width="150" Target="_blank" >
 <ItemStyle Width="150px"></ItemStyle>
         </asp:HyperLinkField>
     </Columns>
