@@ -24,23 +24,47 @@ namespace DW_MySQL2
             using (MySqlConnection cn = new MySqlConnection(connectionString))
 
             {
-                using (MySqlCommand cmd = new MySqlCommand("spSearchFileCabinets", cn)) ;
-                if(txtPatientName.Value.Trim)
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@name", PATIENT_NAME);
-                    cmd.Parameters.AddWithValue("@account_num", ACCT);
-                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        GridView1.DataSource = dt;
-                        GridView1.DataBind();
-                    }
+                MySqlCommand cmd = new MySqlCommand("spSearchFileCabinets", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-
+                if (txtPatientName.Text.Trim() != "")
+                {
+                    MySqlParameter param = new MySqlParameter
+                        ("@name", txtPatientName.Text);
+                    cmd.Parameters.Add(param);
                 }
 
+                if (txtAccountNumber.Text.Trim() != "")
+                {
+                    MySqlParameter param = new MySqlParameter
+                        ("@account_num", txtAccountNumber.Text);
+                    cmd.Parameters.Add(param);
+                }
+               
+              
+                
+
+                cn.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                gvSearchResults.DataSource = rdr;
+                gvSearchResults.DataBind();
             }
+
+            /* cmd.Parameters.Add(new MySqlParameter("@name", txtPatientName));
+            cmd.Parameters.Add(new MySqlParameter("@account_num", txtAccountNumber));
+
+
+            using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+            {
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                GridView1.DataSource = dt;
+                GridView1.DataBind(); */
         }
-    }
-}
+
+
+            }
+
+        }
+    
+    

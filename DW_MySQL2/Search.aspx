@@ -43,8 +43,10 @@
         <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" class="btn btn-outline-primary mx-auto" Text="Search" />
         <br />
         </div>  </div>  </div>
-      
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" HorizontalAlign="Center" Width="80%">
+        <asp:GridView CssClass="table table-bordered"
+                            ID="gvSearchResults" runat="server">
+                        </asp:GridView>
+       <%-- <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" HorizontalAlign="Center" Width="80%">
     <Columns>
 
         <asp:BoundField DataField="File Cabinet" HeaderText="File Cabinet" ItemStyle-Width="150" >
@@ -68,7 +70,7 @@
         </asp:HyperLinkField>
     </Columns>
             <HeaderStyle BackColor="#004AE7" ForeColor="White" />
-</asp:GridView> 
+</asp:GridView>  --%>
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
